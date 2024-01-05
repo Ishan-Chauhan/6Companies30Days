@@ -1,0 +1,38 @@
+public:
+    string printMinNumberForPattern(string s){
+        // code here 
+        int n = s.size();
+        
+        string res="";
+        int mini=3;
+        int lasti=0;
+        
+        if(s[0]=='I')
+        {
+            res+="12";
+        }
+        else
+        {
+            res+="21";
+            lasti=-1;
+        }
+        
+        for(int i=1;i<n;i++)
+        {
+            if(s[i]=='I')
+            {
+                res+=to_string(mini);
+                lasti=i;
+            }
+            else
+            {
+                res+=res[i];
+                
+                for(int j=lasti+1;j<=i;j++) res[j]++;
+            }
+            mini++;
+            
+        }
+        return res;
+    }
+};
