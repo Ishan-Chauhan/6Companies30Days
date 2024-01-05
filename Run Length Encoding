@@ -1,0 +1,22 @@
+string encode(string src)
+{     
+  //Your code here 
+  int n=src.size();
+  int i=0;
+  int j=0, c=0;
+  string ans;
+  
+  while(j<n)
+  {
+      c=0;
+      while(src[i]==src[j] && j<n) 
+      {
+          c++;
+          j++;
+      }
+      ans += src[i];
+      ans += to_string(c);
+      i=j;
+  }
+  return ans;
+}
